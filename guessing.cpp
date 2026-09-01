@@ -11,7 +11,7 @@ int main()
 {
   //https://www.geeksforgeeks.org/cpp/rand-and-srand-in-ccpp/
   srand(time(NULL));
-  int num = rand() % 100;
+  int num = rand() % 101;
   int input = 0;
   bool playing = true;
   char replay = 1;
@@ -32,7 +32,7 @@ int main()
 	cout << "Would you like to play again?(y/n): ";
 	cin >> replay;
 	if (replay == 'y'){
-	  num = rand() % 100;
+	  num = rand() % 101;
 	  replay = 0;
 	}
 	else if (replay == 'n'){
