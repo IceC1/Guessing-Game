@@ -3,28 +3,30 @@ Elijah Chan 8/28/2026
 Guessing Game
  */
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
 int main()
 {
-  int num = srand(time(NULL));
+  srand(time(NULL));
+  int num = rand() % 100;
   int input = 0;
   bool playing = true;
   
-  cin >> "Enter a number: " >> input >> endl;
-  cout << num
+  //cout << num;
   while (playing) {
-    if (input > num) {
-      cout << "You guessed too low"
-	}
+    cout << "Guess a number: ";
+    cin >> input;
     if (input < num) {
-      cout << "You guessed too high"
+      cout << "You guessed too low" << endl;
+	}
+    if (input > num) {
+      cout << "You guessed too high" << endl;
 	}
     if (input == num) {
-      cout << "You win!"
-      playing = false
+      cout << "You win!";
+      playing = false;
 	}
-    
-  
+  }
 }
