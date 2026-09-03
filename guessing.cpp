@@ -1,9 +1,12 @@
 /*
 Elijah Chan 8/28/2026
 Guessing Game
+1. No global variables(global constants are alright).
+2. No strings.
+3. Use #include <iostream>.
  */
 #include <iostream>
-#include <cstdlib>
+
 
 using namespace std;
 
@@ -13,13 +16,15 @@ int main()
   srand(time(NULL));
   int num = rand() % 101;
   int input = 0;
+  int guesses = 0;
   bool playing = true;
   char replay = 1;
   
-  //cout << num;
+  //Runs the loop for the high low game.
   while (playing) {
     cout << "Guess a number: ";
     cin >> input;
+    guesses++;
     if (input < num) {
       cout << "You guessed too low" << endl;
 	}
@@ -29,10 +34,12 @@ int main()
     if (input == num) {
       cout << "You win!" << endl;
       while (replay){
+	cout << "You made " << guesses << " guesses" << endl;
 	cout << "Would you like to play again?(y/n): ";
 	cin >> replay;
 	if (replay == 'y'){
 	  num = rand() % 101;
+	  guesses = 0;
 	  replay = 0;
 	}
 	else if (replay == 'n'){
